@@ -2,146 +2,43 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Chaitya Shah</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 </head>
 <body>
-	<style>
-	/* 
-	#6ed3cf
-	#9068be
-	#e1e8f0
-	#e62739
-	*/
-	body{
-		margin: 0px;
-	}
-	.Myname{
-		z-index: +2px;
-		float: left;
-		text-decoration: None;
-		color: White;
-		font-family: Goudy Stout;
-		font-size: 40px;
-		text-align: center;
-		background-color: #6ed3cf;
-		width: 10%;
-		height: 100%;
-		padding: 2%;
-		margin: 0px;
-		padding-top: 0px;
-		white-space: 0px;
-	}
-	div .name{
-		padding-top: 10px;
-	}
-	.Aboutme{
-		margin: 0px;
-		background: #9068be;
-		width: 100%;
-		height:150px;
-		border-spacing: 10px;
-		padding:3%;
-		padding-top: 0px;
-		color: white;
-		margin-left: 10px;
-		z-index:-3px;
-	}
+	<div class="container">
+<div class="cover" id="cover">
+  <h1>Chaitya is a Programmer</h1>
+  <div id="effect">know more about him!</div>
+  <div class="menu">
+  	<button id="AboutMe">About Me</button>
+  	<button id="Resume">Resume</button>
+  	<button id="Projects">Projects</button>
+  	<button id="Connect">Connect</button>
+  </div>
+	
 
-	.Aboutme h3{
-		float: center;
-		color:white;
-		padding: 20px;
-		margin-left:10px;
-	}
-	p{
-		/**/
-		margin-left: 0px;
-		float:left;
-		color: white;
-		padding-left: 20px;
-		font-size: 21px;
-	}
-	.Head{
-		font-size: 25px;
 
-	}
-	.Aboutme :hover{
-		color:yellow;
+</div>
+  <div class="aboutMe" >
+  	<button class="back" id="AboutMe1">bring it back</button>
+  	<h2>About me</h2>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+    
+  </div>
+  <div class="Resume" >
+  	<button class="back" id="Resume1">^</button>
 
-	}
-	/*.Aboutme::after{
-		content: " Hello World";
-		display: block;
-		background: white;
-		height: 400px;
-		width: 8000px;
-		position: absolute;
-		z-index: -2;
-		bottom: -50%;
-		left: 50%;
-		margin-left: -4000px;
-		-webkit-transform: rotate(-6deg);
-		transform: rotate(-6deg);
-	}*/
-	/*.top-rect::after{
-		content: " Hello World";
-		display: block;
-		background: white;
-		height: 400px;
-		width: 8000px;
-		position: absolute;
-		z-index: 1;
-		bottom: -50%;
-		left: 50%;
-		margin-left: -4000px;
-		-webkit-transform: rotate(-6deg);
-		transform: rotate(-6deg);
-	}
-	.top-rect{
-		width: 100%;
-		padding-top: 400px;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		background-color: #F9EC31;
-		overflow: hidden;
-	}*/
+  	<h2>Resume</h2>     
+  	 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+  </div>
 
-	</style>
-	<div class="top-rect"></div>
-	<section class = "Myname" > 
-		<div class="name">C</div>
-		<div class="name">h</div>
-		<div class="name">a</div>
-		<div class="name">i</div>
-		<div class="name">t</div>
-		<div class="name">y</div>
-		<div class="name">a</div>
-		<div class="name" style="padding-top:20px">S</div>
-		<div class="name">h</div>
-		<div class="name">a</div>
-		<div class="name">h</div> 
-	</section>
-	<section class = "Aboutme">
-		  
-		
-		<p class="Head">
-		<strong>About Me</strong> </p>
-		<br>
-		<br>
-		<br>
-		<p>
-			I am an Engineering student at KJSCE. <br>
-			I  love  programming and Algorithms facinate me.
-			
-			
-					</p>
-		
-	</section>
-	<section class="Hello">
-		
-	</section>
+</div>
+	
 </body>
 
+	<script type="text/javascript" src="script.js"></script>
 </html>
