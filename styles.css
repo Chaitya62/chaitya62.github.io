@@ -2,6 +2,9 @@ html,body{
   margin: 0px;
   height:100vh;
 }
+.container{
+  z-index:0;
+}
 .back{
   width:20%;
   background: transparent;
@@ -14,21 +17,34 @@ html,body{
   
 }
 .aboutMe,.Resume{
+  width:80%;
   display:none;
   padding:10px;
-  margin:50px;
+  margin-left:10%;
   height:0px;
+  margin-top:5%;
   transition:all 0.65s ease-in;
 }
 
-h1{
+.cover h1{
   display:flex;
   margin:0px;
 }
+.covertext{
+  text-align: center;
+  transform:translate(0%,0%);
+  color:white;
+  transition:all 0.65s ease-in-out;
 
+}
+.is-clicked .covertext{
+  transform:translate(0%,-90%);
+  color:transparent;
+}
 .cover{
-  height:100vh;
+  height:92vh;
   background:url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg");
+ /*background:url("cover.jpg");*/
   background-size:cover;
   margin:0px;
   display:flex;
@@ -39,6 +55,8 @@ h1{
   font-size:30px;
   flex-direction:column;
   border:0px;
+  z-index:0;
+  transform: translate(0px,0px);
   transition:all 0.65s ease-out;
 }
 .contatiner{
@@ -48,18 +66,18 @@ h1{
   content:"";
   cursor:pointer;
 }
-
-.is-clicked {
+.is-clicked{
   display:flex;
   flex-direction:column;
   height:0px;
   align-items:center;
+  text-align: center;
 }
 .is-clicked .menu{
   display: none;
 }
 button{
- 
+  cursor:pointer;
   /*transform : translate(40px,20px);*/
 }
 .menu{
@@ -74,4 +92,26 @@ button{
   padding:9px;
   border-radius:6px;
 
+}
+.stickynav{
+  background:black;
+  display:block;
+  margin:0px;
+  height: 8vh
+  /*border:4px solid red;*/
+
+}
+.stickynav ul{
+  list-style: none;
+  margin:0px;
+
+}
+.nav li{
+  display:inline-block;
+  padding:12px;
+
+}
+.nav a{
+  text-decoration: none;
+  color:white;
 }
