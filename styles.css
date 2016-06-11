@@ -41,6 +41,9 @@ html,body{
   transform:translate(0%,-90%);
   color:transparent;
 }
+.is-selected{
+  cursor: not-allowed;
+}
 .cover{
   height:93.3vh;
   background:url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg");
@@ -94,7 +97,7 @@ button{
 
 }
 .stickynav{
-  background:black;
+  background:url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg");
   display:block;
   margin:0px;
   height: 2%;
