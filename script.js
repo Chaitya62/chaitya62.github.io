@@ -7,7 +7,23 @@ function Resume(){
   $(".Resume").toggleClass("is-clicked");
 }
 
+<<<<<<< HEAD
+=======
+if($(".cover").hasClass("is-clicked")){
+	$("#AboutMenav").click(Aboutme);
+}
+>>>>>>> gh-pages
 $("#AboutMe").click(Aboutme);
 $("#AboutMe1").click(Aboutme);
 $("#Resume").click(Resume);
 $("#Resume1").click(Resume);
+<<<<<<< HEAD
+=======
+function Home(){
+	$(".cover").removeClass("is-clicked");
+  $(".aboutMe").removeClass("is-clicked");
+  $(".Resume").removeClass("is-clicked");
+}
+
+$('#Home').click(Home);
+>>>>>>> gh-pages
