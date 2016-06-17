@@ -1,6 +1,8 @@
 html,body{
   margin: 0px;
   height:100vh;
+  background: 
+#34314c ;
 }
 .container{
   z-index:0;
@@ -24,6 +26,15 @@ html,body{
   height:0px;
   margin-top:5%;
   transition:all 0.65s ease-in;
+  color:white;
+}
+.aboutMe h2{
+ 
+}
+.aboutMe p,.Resume p{
+ 
+  display:inherit;
+  margin:10%;
 }
 
 .cover h1{
@@ -46,7 +57,11 @@ html,body{
 }
 .cover{
   height:93.3vh;
-  background:url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg");
+ /* background:url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg");*/
+ background:
+#47b8e0
+;
+
  /*background:url("cover.jpg");*/
   background-size:cover;
   margin:0px;
@@ -97,7 +112,8 @@ button{
 
 }
 .stickynav{
-  background:url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg");
+  /*background:url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg");*/
+  background:#47b8e0;
   display:block;
   margin:0px;
   height: 2%;
