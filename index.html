@@ -256,7 +256,9 @@ Abhiyantriki is our technical fest Also we organized a the first ever Hackathon 
     <script>
     var x;
         $('#hideme').click(function(){
-            $(this.parentElement).animate({"opacity": "0"},1000);
+            $(this.parentElement).animate({"opacity": "0"},1000,function(){
+                alert("Element hidden");
+            });
         });
     </script>
 </body>
