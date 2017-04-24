@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" contewnt="">
 
     <title>Chaitya Shah's Blog</title>
     <link rel="icon" href="./assets/images/logo.png" type="image/png">
@@ -225,8 +225,9 @@ Abhiyantriki is our technical fest Also we organized a the first ever Hackathon 
                 <div class="well">
                     <h4>Welcome</h4>
                     <p>Hello, World!</p>
+                    <button class="btn btn-small btn-success" id="hideme">Hide me</button>
                 </div>
-
+                
             </div>
 
         </div>
@@ -252,7 +253,12 @@ Abhiyantriki is our technical fest Also we organized a the first ever Hackathon 
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
+    <script>
+    var x;
+        $('#hideme').click(function(){
+            $(this.parentElement).animate({"opacity": "0"},1000);
+        });
+    </script>
 </body>
 
 </html>
