@@ -2,7 +2,7 @@
 layout: post
 title: "Hello, World!"
 tagline: "My First Website"
-categories: web
+categories: 
 image: /test.png
 author: "Chaitya Shah"
 meta: "Web Development"
