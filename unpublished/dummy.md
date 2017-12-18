@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Todos"
+tagline: "Things to do in winter"
+categories: next
+image: /test.png
+author: "Chaitya Shah"
+meta: "goals"
+---
+
+
+Plans post 25.11.2017:
+
+1. Work on CNN from scratch
+2. Work on Machine Learning
+3. Make a notepad.pw cli
+4. Complete Search IT
+5. Create Chatbot
+6. Apply to more internships 
+7. Contribute more to opensource 
+8. Read research papers
+9. ...
+
+This list is not complete yet.
+
+
