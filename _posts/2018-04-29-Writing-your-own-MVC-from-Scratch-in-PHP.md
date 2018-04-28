@@ -13,7 +13,7 @@ In this post, we will learn what is MVC and how I created a MVC framework from s
 
 
 
-## What the heck is MVC ?
+- What the heck is MVC ?
 
 
 
