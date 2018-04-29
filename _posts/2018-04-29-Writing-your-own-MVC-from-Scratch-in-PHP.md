@@ -46,6 +46,33 @@ This pattern is famous on the web, but many mobile applications also follow a va
 
 Now we know what MVC is,let's start writing our MVC.
 
+### Directory Structure
+
+First we will look at the directory structure.
+
+
+```php
+
+├───config
+├───controller
+├───core
+│   └───database
+├───model
+└───view
+
+```
+`config`: It contains all the configuration files
+`controller`: It contains all the controllers
+`core`: Core files which we use to create our models and controllers
+`database`: It contains the connection database drivers
+`model`: It contains all the models
+`view`: It contains all the views.
+
+
+
+
+### Entry point
+
 We want a single entry point that routes to the a particular component or module.
 
 We have two options to do this
@@ -72,7 +99,7 @@ For routing we need to know the arguments passed in the url after `index.php`.
 
 This piece of code helps me find the start index of the arguments we need.
 
-```PHP
+```php
 
 function getArgumentStart($uri){
 		foreach ($uri as $key => $value){
@@ -90,12 +117,15 @@ This function return  `-1` if the url is incorrect, otherwise we get the index w
 
 Now all we need to do is call the function belonging to a specific controller.
 
+
+### Controller (CORE)
+
 Before doing that let's look at the structure of the controller.
 
 So the controller will be a class that extends to the base class `CJ_Controller.php`
 CJ_Controller will have all the helper functions we need in the Controller.
 
-```PHP
+```php
 
 class CJ_Controller{
 
@@ -115,9 +145,12 @@ class CJ_Controller{
 
 ```
 
+
+### Controller
+
 A generic controller will look like
 
-```PHP
+```php
 // we need to import the CI_Controller we wrote in order to extend it
 require_once(__DIR__.'/../core/CJ_Controller.php');
 
@@ -147,9 +180,12 @@ We will see in the `index.php` how we handle the `\_get` and `\_post`.
 
 So now we have the Controller ready and the functions we want to call. We just have to make sure that the url routes to the correct controller and function.
 
+
+### Routing
+
 Getting the juice from the url
 
-```PHP
+```php
 // converting url to array
 $parameters = explode('/', $uri['path']);
 
@@ -198,7 +234,7 @@ It takes two parameters one is a callback and second is the parameter array you 
 
 Here is a simple example from the official documentation.
 
-```PHP
+```php
 
 function foobar($arg, $arg2) {
     echo __FUNCTION__, " got $arg and $arg2\n";
@@ -227,7 +263,7 @@ This is what was missing.
 
 let's update the `index.php`
 
-```PHP
+```php
 // converting url to array
 $parameters = explode('/', $uri['path']);
 
@@ -275,10 +311,85 @@ Let's quickly take care of it.
 
 Change the assignment of the `$function_name` to
 
-```PHP
+```php
 $function_name = $parameters[$start+1] . "_" . strtolower($_SERVER['REQUEST_METHOD']);
 
 ```
 This will append the method to the function name, just like how we named our function in the controller, Simple isn't it.
 
+
+### Model
+
 Only element left is the **Model**
+
+We will only be implementing
+
+- Read (select)
+- Update (update)
+- Delete (delete)
+- Create (insert)
+- Where clause
+
+You can however increase the functionality or stick to pure SQL queries.
+
+So we will just look at how we can use the model in the controller. You can build the Model class anyway you want.
+
+So our model will also inherit from our core class `CJ_Model.php`.
+
+Here is how the `CJ_Model.php` looks like.
+
+```php
+
+// let's look at this next
+require_once(__DIR__.'/database/CJ_Connection.php');
+
+class CJ_Model{
+	function __construct(){
+		echo 'CJ_Model class created <br>';
+
+    // the important part.
+    $db = new CJ_Connection();
+		$this->connection =  $db->getConnection();
+	}
+
+	function create($tableName,$insertWhat){...}
+
+	function read($tableName,$args,$whereArgs){...}
+
+  function update($tableName,$whatToSet,$whereArgs){...}
+
+  function delete($tableName,$whereArgs){...}
+
+  function where($sql,$whereArgs){...}
+
+}
+
+```
+
+`CJ_Model` has all the helpers and it has the connection.
+
+The connections is the most important part and you can get away without implementing the rest and just using classic SQL queries.
+
+The `CJ_Connection.php` looks like
+
+
+```php
+
+class CJ_Connection{
+	function __construct(){
+
+    // this is the configuration file
+		require_once(__DIR__.'/../../config/database.php');
+		$this->db_params = $db_params;
+	}
+
+	function getConnection(){
+		$conn = new mysqli($this->db_params['servername'],$this->db_params['username'],$this->db_params['password'],$this->db_params['dbname']);
+		if($conn->connect_error){
+			die("Connection Faild: ". $conn->connect_error);
+		}
+		return $conn;
+	}
+}
+
+```
