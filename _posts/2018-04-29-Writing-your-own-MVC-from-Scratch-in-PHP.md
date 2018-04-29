@@ -55,4 +55,28 @@ Let's see how we will route our requests.
 
 So the user will enter something like.
 
-`localhost/Appname/index.php/ControllerName/functionName/args.../args../moreargs/``
+`localhost/Appname/index.php/ControllerName/functionName/args.../args../moreargs/`
+
+in normal php we already use the pattern
+`localhost/Appname/whateverPhpFileWeWant.php`
+
+now instead of using different PHP files we just route the request to them by using  `index.php`
+
+For routing we need to know the arguments passed in the url after `index.php`.
+
+This piece of code helps me find the start index of the arguments we need.
+
+```php
+
+function getArgumentStart($uri){
+		foreach ($uri as $key => $value){
+			if($value == 'index.php'){
+				if($key == count($uri) - 1 ) return -1;
+				return $key+1;
+			}
+		}
+}
+
+```
+
+here `$uri` is `parse_url($_SERVER['REQUEST_URI']);`.
