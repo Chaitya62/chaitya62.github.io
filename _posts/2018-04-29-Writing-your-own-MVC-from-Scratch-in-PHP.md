@@ -522,3 +522,11 @@ echo $content;
 
 
 ```
+
+That's it, we have a simple working MVC. Which we created in less then 300 lines of code.
+
+You can check the entire code on github [here](https://github.com/Chaitya62/CJ-MVC)
+
+Thanks for reading so far. You can write to me at chaitya.shah@somaiya.edu if you have any suggestions or feedback.
+
+Keep hacking....
