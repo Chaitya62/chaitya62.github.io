@@ -44,14 +44,13 @@ This pattern is famous on the web, but many mobile applications also follow a va
 
 ## Let's get started
 
-Now we know what MVC is,let's start writing our MVC.
 
 ### Directory Structure
 
 First we will look at the directory structure.
 
 
-```php
+```bash
 
 ├───config
 ├───controller
@@ -62,10 +61,15 @@ First we will look at the directory structure.
 
 ```
 `config`: It contains all the configuration files
+
 `controller`: It contains all the controllers
+
 `core`: Core files which we use to create our models and controllers
+
 `database`: It contains the connection database drivers
+
 `model`: It contains all the models
+
 `view`: It contains all the views.
 
 
@@ -320,9 +324,9 @@ This will append the method to the function name, just like how we named our fun
 
 ### Model
 
-Only element left is the **Model**
+ The **Model** is the memory of the MVC and you cannot create a truly functional and dynamic app without database.
 
-We will only be implementing
+I implemented the following methods.
 
 - Read (select)
 - Update (update)
@@ -334,7 +338,7 @@ You can however increase the functionality or stick to pure SQL queries.
 
 So we will just look at how we can use the model in the controller. You can build the Model class anyway you want.
 
-So our model will also inherit from our core class `CJ_Model.php`.
+So our model will inherit from our core class `CJ_Model.php`.
 
 Here is how the `CJ_Model.php` looks like.
 
