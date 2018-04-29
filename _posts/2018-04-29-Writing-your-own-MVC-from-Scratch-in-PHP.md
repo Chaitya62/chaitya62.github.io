@@ -77,7 +77,7 @@ First we will look at the directory structure.
 
 ### Entry point
 
-We want a single entry point that routes to the a particular component or module.
+We want a single entry point that routes to a particular component or module.
 
 We have two options to do this
 
