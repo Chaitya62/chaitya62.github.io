@@ -36,9 +36,9 @@ The Model-View-Controller (MVC) is an architectural pattern. It divides the appl
 
 In layman terms MVC is nothing but a division of you app into modules which talk to each other to do specific task.
 
-This is useful because now you can easily track the problems and error and pin point the part which is not behaving the way you want it too.
+This is useful because now you can easily track the problems and error and pin point the part which is not behaving the way you want it to.
 
-For example if your database is not acting the way it should, you know there is something wrong in the model and you go and fix it. No need to read through the complex login and authentication code you wrote. You dont' have to scroll through the php page which contains all the html and php to find the database code.
+For example if your database is not acting the way it should, you know there is something wrong in the model and you can go and fix it. No need to read through the complex login and authentication code you wrote. You dont' have to scroll through the php page which contains all the html and php to find the database code.
 
 This pattern is famous on the web, but many mobile applications also follow a variant of this pattern.
 
@@ -79,7 +79,7 @@ First we will look at the directory structure.
 
 We want a single entry point that routes to a particular component or module.
 
-We have two options to do this
+We have two options to do this:
 
 1. We can have a associative array which maps each url to a controller.
 2. We can directly have the controller in the url.
@@ -126,7 +126,8 @@ Now all we need to do is call the function belonging to a specific controller.
 
 Before doing that let's look at the structure of the controller.
 
-So the controller will be a class that extends to the base class `CJ_Controller.php`
+So the controller will be a class that extends to the base class `CJ_Controller.php`.
+
 CJ_Controller will have all the helper functions we need in the Controller.
 
 ```php
@@ -148,7 +149,8 @@ class CJ_Controller{
 A generic controller will look like
 
 ```php
-// we need to import the CI_Controller we wrote in order to extend it
+
+// we need to import the CI_Controller to inherit from it
 require_once(__DIR__.'/../core/CJ_Controller.php');
 
 class Test extends CJ_Controller{
@@ -197,10 +199,9 @@ if($start != -1){
 
   $function_name = $parameters[$start+1];
 
-  // now we can pack the rest of the values as arguments.
 
+// now we can pack the rest of the values as arguments.
 // for that we will create a simple array
-
 $args = array()
 
 // setting the correct index
@@ -220,7 +221,7 @@ for(;$start<count($parameters);$start++){
 
 
 ```
-So far we have collected all the necessary values we need to route our request. Now let's see how can we call our funciton.
+So far we have collected all the necessary values we need to route our request. Now let's see how can we call our function.
 
 All we need is to create an instance of the controller using `$controller_name` and call `$function_name`. Now this is tough in some other languages but PHP has [variable variable](http://php.net/manual/en/language.variables.variable.php) No! not a typo. click on the link to know more.
 
@@ -300,7 +301,7 @@ call_user_func_array(array(new $controller_name, $function_name), $args); // <==
 ```
 
 
-Now with this much code our MVC is working we can route our requests to the controller and function we want.
+Now with this code our MVC is working we can route our requests to the controller and function we want.
 
 But we are not handling the `GET` and `POST`  methods yet.
 
@@ -319,7 +320,7 @@ This will append the method to the function name, just like how we named our fun
 
  The **Model** is the memory of the MVC and you cannot create a truly functional and dynamic app without database.
 
-I implemented the following methods.
+These methods were implemented:
 
 - Read (select)
 - Update (update)
@@ -365,7 +366,7 @@ class CJ_Model{
 
 `CJ_Model` has all the helpers and it has the connection.
 
-The connections is the most important part and you can get away without implementing the rest and just using classic SQL queries.
+The connection is the most important part and you can get away without implementing the rest and just using classic SQL queries.
 
 The `CJ_Connection.php` looks like
 
@@ -421,7 +422,7 @@ class TestModel extends CJ_Model {
 
 ### Config
 
-The config directory can contains many more files, but I have used it just to store the database configuration.
+The config directory can contain many more files, but I have used it to store the database configuration.
 
 So the config directory contains only one file `database.php`
 
@@ -440,7 +441,7 @@ $db_params = array(
 
 ### Connecting the Model and Controller
 
-Inside the controller require the model you want to use and then create an instance of the model's class in the constructor
+Inside the controller  `require` the model you want to use and then create an instance of the model's class in the constructor
 
 The code will look something like
 
@@ -456,7 +457,7 @@ class Test extends CJ_Controller{
 	function __construct(){
     ...
 
-    // instance of the model
+    // create an instance of the model
     $this->test_model = new TestModel();
 
     ...
@@ -474,19 +475,19 @@ class Test extends CJ_Controller{
 
 ```
 
-That's it now you have **Model** and **Controller** working.
+That's it. Now you have the **Model** and the **Controller** working.
 
 
 ### View
 
 By far this is the simplest to implement.
 
-We will create a load view function in `CJ_Controller.php` that will inject the parameters we pass in the view globally.
+We will create a `load_view` function in `CJ_Controller.php` that will inject the parameters we pass in the view globally.
 
 The view can be a simple php file and no fancy classes or inheritance is needed there.
 
 
-The load_view function will look like
+The `load_view` function will look like
 
 
 ```php
@@ -523,7 +524,7 @@ echo $content;
 
 ```
 
-That's it, we have a simple working MVC. Which we created in less then 300 lines of code.
+That's it, we have a simple working MVC, which we created in less then 300 lines of code.
 
 You can check the entire code on github [here](https://github.com/Chaitya62/CJ-MVC)
 
