@@ -9,6 +9,8 @@ meta: "Web Development"
 ---
 
 
+# Post in Progress not Complete.
+
 In this post, we will learn what is MVC and how I created a MVC framework from scratch.
 
 
@@ -66,7 +68,7 @@ For routing we need to know the arguments passed in the url after `index.php`.
 
 This piece of code helps me find the start index of the arguments we need.
 
-```php
+```PHP
 
 function getArgumentStart($uri){
 		foreach ($uri as $key => $value){
@@ -80,3 +82,32 @@ function getArgumentStart($uri){
 ```
 
 here `$uri` is `parse_url($_SERVER['REQUEST_URI']);`.
+
+This function return  `-1` if the url is incorrect, otherwise we get the index where **ControllerName** starts
+
+Now all we need to do is call the function belonging to a specific controller.
+
+Before doing that let's look at the structure of the controller.
+
+So the controller will be a class that extends to the base class `CJ_Controller.php`
+CJ_Controller will have all the helps and basic function we need in the Controller.
+
+```PHP
+
+class CJ_Controller{
+
+	function __construct(){
+		echo "CJ_Controller created";
+	}
+	function load_view($view, $args){
+		foreach ($args as $vname => $vvalue) {
+
+			$$vname = $vvalue;
+		}
+		require_once(__DIR__.'/../view/'.$view.'.php');
+
+	}
+}
+
+
+```
