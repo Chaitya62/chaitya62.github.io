@@ -6,7 +6,7 @@ categories:
 image: /test.png
 author: "Chaitya Shah"
 meta: "Web Development"
-comments: false
+comments: true
 ---
 
 

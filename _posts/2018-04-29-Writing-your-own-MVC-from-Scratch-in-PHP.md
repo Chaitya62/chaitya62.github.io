@@ -6,10 +6,10 @@ categories:
 image: /test.png
 author: "Chaitya Shah"
 meta: "Web Development"
+comments: true
 ---
 
 
-# Post in Progress not Complete.
 
 In this post, we will learn what is MVC and how to create a MVC framework from scratch.
 
