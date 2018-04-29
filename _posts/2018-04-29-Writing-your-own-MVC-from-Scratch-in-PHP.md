@@ -122,7 +122,7 @@ This function return  `-1` if the url is incorrect, otherwise we get the index w
 Now all we need to do is call the function belonging to a specific controller.
 
 
-### Controller (CORE)
+### Controller
 
 Before doing that let's look at the structure of the controller.
 
@@ -136,21 +136,14 @@ class CJ_Controller{
 	function __construct(){
 		echo "CJ_Controller created";
 	}
-	function load_view($view, $args){
-		foreach ($args as $vname => $vvalue) {
 
-			$$vname = $vvalue;
-		}
-		require_once(__DIR__.'/../view/'.$view.'.php');
-
-	}
+  // we will look at this in the view
+	function load_view($view, $args){...}
 }
 
 
 ```
 
-
-### Controller
 
 A generic controller will look like
 
@@ -395,5 +388,137 @@ class CJ_Connection{
 		return $conn;
 	}
 }
+
+```
+
+
+The generic model will look like
+
+
+```php
+
+// require the core CJ_Model
+require_once(__DIR__.'/../core/CJ_Model.php');
+
+
+class TestModel extends CJ_Model {
+
+  function __construct(){
+		parent::__construct();
+		echo 'Test Model  CREATED '."<br />";
+	}
+
+
+  // test function to check model is working
+  function sayHello($name){
+		echo "Welcome to  ". $name;
+	}
+
+}
+
+```
+
+
+### Config
+
+The config directory can contains many more files, but I have used it just to store the database configuration.
+
+So the config directory contains only one file `database.php`
+
+
+```php
+
+$db_params = array(
+	'servername' => '',
+	'username' => '',
+	'password' => '',
+	'dbname' => ''
+);
+
+```
+
+
+### Connecting the Model and Controller
+
+Inside the controller require the model you want to use and then create an instance of the model's class in the constructor
+
+The code will look something like
+
+
+```php
+
+// require the model
+require_once(__DIR__.'/../model/TestModel.php');
+require_once(__DIR__.'/../core/CJ_Controller.php');
+
+
+class Test extends CJ_Controller{
+	function __construct(){
+    ...
+
+    // instance of the model
+    $this->test_model = new TestModel();
+
+    ...
+  }
+
+  function hello_get(...$args){
+
+		$this->test_model->sayHello('CJ_MODEL');
+	}
+
+
+  ....
+}
+
+
+```
+
+That's it now you have **Model** and **Controller** working.
+
+
+### View
+
+By far this is the simplest to implement.
+
+We will create a load view function in `CJ_Controller.php` that will inject the parameters we pass in the view globally.
+
+The view can be a simple php file and no fancy classes or inheritance is needed there.
+
+
+The load_view function will look like
+
+
+```php
+
+function load_view($view, $args){
+		foreach ($args as $vname => $vvalue) {
+
+			$$vname = $vvalue;
+		}
+		require_once(__DIR__.'/../view/'.$view.'.php');
+
+}
+
+
+```
+
+Now we can call a view from our controller using
+
+
+```php
+
+// inside the controller
+
+function test_get(){		
+		$this->load_view('home', array('content'=>'<h1>This content is sent from controller</h1>'));
+
+  }
+
+
+// home.php
+
+echo $content;
+
 
 ```
