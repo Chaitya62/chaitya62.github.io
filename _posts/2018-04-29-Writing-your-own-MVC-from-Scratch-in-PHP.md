@@ -11,7 +11,7 @@ meta: "Web Development"
 
 # Post in Progress not Complete.
 
-In this post, we will learn what is MVC and how I created a MVC framework from scratch.
+In this post, we will learn what is MVC and how to create a MVC framework from scratch.
 
 
 
@@ -175,7 +175,7 @@ class Test extends CJ_Controller{
 ```
 Now the function names have \_get that means that the functions handle GET requests.
 
-We will see in the `index.php` how we handle the `\_get` and `\_post`.
+We will see in the `index.php` how we handle the `_get` and `_post`.
 
 So now we have the Controller ready and the functions we want to call. We just have to make sure that the url routes to the correct controller and function.
 

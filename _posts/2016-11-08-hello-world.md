@@ -2,10 +2,11 @@
 layout: post
 title: "Hello, World!"
 tagline: "My First Website"
-categories: 
+categories:
 image: /test.png
 author: "Chaitya Shah"
 meta: "Web Development"
+comments: false
 ---
 
 
