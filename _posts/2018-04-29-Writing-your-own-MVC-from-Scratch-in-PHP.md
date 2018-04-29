@@ -23,14 +23,16 @@ The Model-View-Controller (MVC) is an architectural pattern. It divides the appl
 
 - Model
 
-This is the memory of the application all the database operations are done in this area/module/folder.
+  > This is the memory of the application all the database operations are done in this area/module/folder.
+
 
 - View
-This is the frontend of the application. Most framework have a templating  engine, which helps to integrate the backend and the front end easily.
+  > This is the frontend of the application. Most framework have a templating  engine, which helps to integrate the backend and the front end easily.
+
 
 - Controller
 
-This is the heart and soul of the application. All the logical components, the conversation between the backend and the front end happends in this part of the application.
+  > This is the heart and soul of the application. All the logical components, the conversation between the backend and the front end happends in this part of the application.
 
 In layman terms MVC is nothing but a division of you app into modules which talk to each other to do specific task.
 
@@ -40,7 +42,7 @@ For example if your database is not acting the way it should, you know there is 
 
 This pattern is famous on the web, but many mobile applications also follow a variant of this pattern.
 
-## So let's get started
+## Let's get started
 
 Now we know what MVC is, now to start writing our first MVC.
 
@@ -90,7 +92,7 @@ Now all we need to do is call the function belonging to a specific controller.
 Before doing that let's look at the structure of the controller.
 
 So the controller will be a class that extends to the base class `CJ_Controller.php`
-CJ_Controller will have all the helps and basic function we need in the Controller.
+CJ_Controller will have all the helper functions we need in the Controller.
 
 ```PHP
 
