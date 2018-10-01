@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://chaitya62.github.io/</loc>
+  <lastmod>2018-09-23T18:35:35+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://chaitya62.github.io/about.html</loc>
+  <lastmod>2018-09-23T18:35:35+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://chaitya62.github.io/2018/04/29/Writing-your-own-MVC-from-Scratch-in-PHP.html</loc>
+  <lastmod>2018-09-23T18:35:35+00:00</lastmod>
+  <changefreq>never</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://chaitya62.github.io/2016/11/08/hello-world.html</loc>
+  <lastmod>2018-09-23T18:35:35+00:00</lastmod>
+  <changefreq>never</changefreq>
+  <priority>0.75</priority>
+</url>
+
+
+</urlset>
