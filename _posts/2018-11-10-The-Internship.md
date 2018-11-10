@@ -10,7 +10,7 @@ comments: true
 ---
 
 
-Like most undergrads, I spent my summer after junior year doing an internship. The internship wasn’t at a top MNC or a software company. It was much more, I had the opportunity to work on cutting-edge technology in a research center at the L. V. Prasad Eye Institute (LVPEI) in Hyderabad. 
+Like most undergrads, I spent my summer after junior year doing an internship. The internship wasn’t at a top MNC or a software company. It was much more as I had the opportunity to work with cutting-edge technology in a research center at the L. V. Prasad Eye Institute (LVPEI) in Hyderabad. 
 
 This was a new experience for me, I have never left my comfortable home and went out for more than 10 days, washing my own clothes, waking up myself or navigating an unknown city all by myself. Until the last minute when I had to leave for my flight, I experienced what my friends describe as “getting cold feet”. I had mixed feelings rushing in my head and maybe my heart (_I can’t tell if it was metaphorical or real_). But my mom was sure nothing was going to happen to me because I had stepped out with my right foot ahead, I had sugar and curd and she gave me Rs. 201 for good luck. Though, I like to describe it as the unluckiest day of my life. On the way to the airport, my dad’s phone was stolen. If that wasn’t bad enough, I was two hours early to the airport for a flight that was delayed by 5 hours and later 6 hours. So as you can tell, my excitement had reached its "peak" when I reached Hyderabad, 12 hours after I left home.
 
