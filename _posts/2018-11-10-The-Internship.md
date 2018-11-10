@@ -3,7 +3,7 @@ layout: post
 title: "The Internship"
 tagline: "My summer in Hyderabad"
 categories:
-image: /test.png
+image: /assets/internship.jpg
 author: "Chaitya Shah"
 meta: "Internship"
 comments: true
@@ -20,7 +20,7 @@ I spend the next few weeks developing a unique algorithm, to get quantitative da
 
 L.Y.Prasad Eye Institute was about to host a hackathon in the following month which invited interns to either participate in the hackathon or in the event management team. I decided I will be a participant. So we spent 5 long days/nights in solving problems in ophthalmology using our knowledge and disciplines. We were crowned first runners-up of the hackathon out of the 30 teams shortlisted nationwide proficient in various domains such as ophthalmology, engineering, and design. The hackathon was one of the best experience I had in my time at LVPEI. 
 
-After the hackathon, we interns resumed our task and I was ready to integrate my developed algorithm to the device. Though there was one tiny problem, we wanted the algorithm to work in real time. And it took 10 sec to analyze 1 image. After spending some days and also few nights trying to optimize the algorithm, I had used various techniques, Like decreasing the overall time complexity of the algorithm by analyzing it, converting mathematical operation from pure python to Numpy way of doing it. And the final thing that helped me the most was to convert the major part of the algorithm from python to C++ and wrapping it back into a python function so that the rest of the things still worked as they were in Python. This task was something, I think is one of the most valuable skills I earned there. Now, I can use the two languages that I am proficient in together.
+After the hackathon, we interns resumed our task and I was ready to integrate my developed algorithm to the device. Though there was a tiny problem, we wanted the algorithm to work in real time which took 10 sec to analyze 1 image. After spending some days and pulling off some all-nighters trying to optimize the algorithm, I used various techniques like decreasing the overall time complexity of the algorithm by analyzing it, converting mathematical operations from pure python to Numpy, so on and so forth. And the final thing that helped me the most was to convert the major part of the algorithm from python to C++ and wrapping it back into a python function so that the rest of the things still worked as they were in Python. This task was something, I think is one of the most valuable skills I earned there. Now, I can use the two languages that I am proficient in together.
 My time at LVPEI gave me some great new skills, awesome connections and yes I did explore the beautiful city of Hyderabad. After my various other conversations there, I am also pretty clear of my aims in life. I intend to be in a place where, my work is affecting the lives of the people, making them better or easier. 
 
 I highly recommend doing internships away from your hometown where you not only learn the technical skills but many other skills which are equally necessary for life.
