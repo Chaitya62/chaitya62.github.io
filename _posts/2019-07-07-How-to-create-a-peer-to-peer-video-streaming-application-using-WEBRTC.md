@@ -206,7 +206,7 @@ Usually a STUN server is used to establish a connection between clients, once it
 
 ### Traversal using relay NAT (TURN)
 
-If a STUN server cannot establish the connection, ICE can turn to TURN. Unlike STUN the TURN server remains in the path of the communication. So we often want to avoid the use of TURN but it is not always possible, as some networks can't be found just by using the STUN. ( details about the complexity are not in the scope of the post )
+If a STUN server cannot establish the connection, ICE can turn to TURN. Unlike STUN the TURN server remains in the path of the communication. We often want to avoid the use of TURN but it is not always possible, as some networks can't be found just by using the STUN. ( details about the complexity are not in the scope of the post )
 
 
 *Note*: You can mention the `STUN` and `TURN` server in the optional configuration while creating the object for `RTCPeerConnection`.
