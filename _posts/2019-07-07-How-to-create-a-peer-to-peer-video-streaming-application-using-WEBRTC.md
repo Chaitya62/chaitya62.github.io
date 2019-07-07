@@ -186,7 +186,7 @@ peerConnection.addIceCandidate(iceCandidate)
 
 ```
 
-That's it, if all the steps work out properly and you are on the same network, the peers should have a RTC connection open.
+That's it. if all the steps work out properly and you are on the same network, the peers should have a RTC connection open.
 
 
 #### Why on the same network ? 
