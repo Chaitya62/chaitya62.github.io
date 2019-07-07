@@ -80,7 +80,7 @@ ICE Candidates has a transport address: a combination of IP address and port for
 
 ### Signaling Server
 
-Before establishing a connection between the two peers we need a mechnism to transfer the SDP Offer and Answers and ICE candidates between the peers. We can use a signaling server for this. A signaling server can be an actual server or you can go ahead and copy paste the SDP and ICE Candidates back and forth on the peers, send a mail or text to the other peer and then manually add it. However in the [example](https://github.com/Chaitya62/WebRTCExample) I have created for reference on the github contains a simple socket server for signaling.
+Before establishing a connection between the two peers we need a mechanism to transfer the SDP Offer and Answers and ICE candidates between the peers. We can use a signaling server for this. A signaling server can be an actual server or you can go ahead and copy paste the SDP and ICE Candidates back and forth on the peers, send a mail or text to the other peer and then manually add it. However in the [example](https://github.com/Chaitya62/WebRTCExample) I have created for reference on the github contains a simple socket server for signaling.
 
 
 
