@@ -191,7 +191,8 @@ That's it. if all the steps work out properly and you are on the same network, t
 
 #### Why on the same network ? 
 
-You can obviously do this on peers which are not on the same connection however that isn't that simple, as peers maybe behind firewalls which cannot be bypassed by ICE alone.
+You can obviously do this on peers which are not on the same connection. 
+However that isn't that simple, as peers maybe behind firewalls which cannot be bypassed by ICE alone.
 
 For having a connection between peers not on the same network you have to use TURN and STUN servers.
 
