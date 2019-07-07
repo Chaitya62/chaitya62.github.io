@@ -10,10 +10,10 @@ comments: true
 ---
 
 
-Hello, It's been a long time since I blogged about almost anything. Recently, I have been learning great deal of new technologies. Here is one technology. I beleive all software developers must be aware of. This is not a new or cutting-edge tech. It has been around for almost 9 years now. Yet many browsers have only recently started supporting it and many few devs are aware or know how this technology works.
+Hello, It's been a long time since I blogged about almost anything. Recently, I have been learning great deal of new technologies. Here is one technology. I believe all software developers must be aware of. This is not a new or cutting-edge tech. It has been around for almost 9 years now. Yet many browsers have only recently started supporting it and many few devs are aware or know how this technology works.
 
 In this blog, I'll explain this technology in the way, I understood it. I don't claim this to be the absolute truth about it and I may dumb down a few things for lucidity.
-But, if somethings incorrect or false which might be conceptually wrong drop a message or comment down below. I'll try to fix it. One Other reason of writing this blog is while I was trying to get a grasp of this tech it was tough for me to find a proper resource that explained everything clearly with a proper coding example that was easy to understand.
+But, if something is incorrect or false which might be conceptually wrong drop a message or comment down below. I'll try to fix it. One Other reason of writing this blog is while I was trying to get a grasp of this tech it was tough for me to find a proper resource that explained everything clearly with a proper coding example that was easy to understand.
 
 Enough banter let's start. 
 
@@ -25,7 +25,7 @@ WebRTC is a project that allows web browsers and mobile applications to develop 
 2. Setup a peer-to-peer connection
 
 
-The first part of getting user media is very simple and straight forward. It just asked for the user permission and provides you with a stream object that you can pass around as you may see fit.
+The first part of getting user media is very simple and straight forward. It just asks for the user permission and provides you with a stream object that you can pass around as you may see fit.
 
 Here is a simple example of getting a user's video and audio.
 
@@ -65,7 +65,7 @@ Before we move on to understand each steps, a few technical terms that are used 
 ### Session Description Protocol (SDP) 
 
 It's a protocol for describing streaming media communications which is used for session announcement, session invitiation and negotiate a connection.
-Since webRTC makes everything easy for us, we don't have to understand the detials and format for SDP. However, you can find details on it [here](https://en.wikipedia.org/wiki/Session_Description_Protocol)
+Since webRTC makes everything easy for us, we don't have to understand the details and format for SDP. However, you can find details on it [here](https://en.wikipedia.org/wiki/Session_Description_Protocol)
 
 
 ### Interactive Connectivity Establishment (ICE)
@@ -73,20 +73,20 @@ Since webRTC makes everything easy for us, we don't have to understand the detia
 Protocols establishing communication sessions between peers typically involve exchanging IP addresses and ports for the data sources and sinks which can be very tricky. 
 Interactive Connectivity Establishment (ICE) is a technique used in computer networking to find ways for two computers to talk to each other as directly as possible in peer-to-peer networking. We don't have to understand this in details too, but there is a step where ICE Candidates are exchanged. To understand why we do that, we should know about ICE.
 
-ICE Candidates has a transport address: a combination of IP address and port for a particular transport protocol.
+ICE Candidates have a transport address: a combination of IP address and port for a particular transport protocol.
 
 [This](https://tools.ietf.org/id/draft-ietf-ice-rfc5245bis-14.html#rfc.section.2.1) is a detailed specification for ICE.
 
 
 ### Signaling Server
 
-Before establishing a connection between the two peers we need a mechanism to transfer the SDP Offer and Answers and ICE candidates between the peers. We can use a signaling server for this. A signaling server can be an actual server or you can go ahead and copy paste the SDP and ICE Candidates back and forth on the peers, send a mail or text to the other peer and then manually add it. However in the [example](https://github.com/Chaitya62/WebRTCExample) I have created for reference on the github contains a simple socket server for signaling.
+Before establishing a connection between the two peers we need a mechanism to transfer the SDP offer, answers and ICE candidates between the peers. We can use a signaling server for this. A signaling server can be an actual server or you can go ahead and copy paste the SDP and ICE Candidates back and forth on the peers, send a mail or text to the other peer and then manually add it. However in the [example](https://github.com/Chaitya62/WebRTCExample) I have created for reference on the github contains a simple socket server for signaling.
 
 
 
 #### Step 1: Create a  RTCPeerConnection Object
 
-This is the simples step we create an object for the RTCPeerConnection which is provided by the webRTC API. Each browsers have their own prefix for example `webkit` for chrome
+This is a simples step. Here we create an object for the RTCPeerConnection which is provided by the webRTC API. Each browser have their own prefix for example `webkit` for chrome
 
 The generic creation of RTCPeerConnection looks like
 
