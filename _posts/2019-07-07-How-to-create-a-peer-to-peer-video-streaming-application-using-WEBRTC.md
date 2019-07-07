@@ -212,7 +212,7 @@ If a STUN server cannot establish the connection, ICE can turn to TURN. Unlike S
 
 
 
-This is all you need to know about webRTC at the most basic level. There is much more details. I have left regarding - SDP and ICE. 
+This is all you need to know about webRTC at the most basic level. There are details I have left regarding - SDP and ICE. 
 Further reading on both will enhance your understanding of the functioning of webRTC. You can however make a simple application with the knowledge of this post.
 
 *Cautions*: If you plan to use webRTC in production, always have a fallback and make sure you understand it well.
