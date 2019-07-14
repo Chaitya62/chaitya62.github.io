@@ -18,7 +18,7 @@ But, if something is incorrect or false which might be conceptually wrong drop a
 Enough banter let's start. 
 
 
-WebRTC is a project that allows web browsers and mobile applications to develop complex RTC application using a simple API. You can have a solid RTC application without having to write any low level RTC programs on your own by using the simple API. This API provides 2 functionalities for the developer writing the application: 
+WebRTC is a project that allows web browsers and mobile applications to develop complex Real-time Communication (RTC) application using a simple API. You can have a solid RTC application without having to write any low level RTC programs on your own by using the simple API. This API provides 2 functionalities for the developer writing the application: 
 
 1. Get Users Media like Audio and Video 
 
