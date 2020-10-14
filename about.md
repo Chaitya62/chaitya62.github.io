@@ -1,11 +1,11 @@
 ---
 layout: page
 title: About
-tagline: Student At KJSCE
+tagline: Software Engineer @ BrowserStack
 permalink: /about.html
 ---
 
-This is my personal blog where I rant about usual or unsual things.
+Expect tech blogs which have a hint of sarcasm and melancholy.
 
 
 
