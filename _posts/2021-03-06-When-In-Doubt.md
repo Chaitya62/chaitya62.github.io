@@ -32,4 +32,4 @@ It's okay to be scared, to be in doubt. You'll be fine, just keep breaking the b
     - Azab Prem ki Gazab Kahani
     - ZNMD
 12. Cook something for yourself or everyone you are with.
-13. Read a paragraph / Chapter from The Mastery
+13. Read a paragraph / Chapter from <a target="_blank" href="https://www.amazon.in/gp/product/178125091X/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=178125091X&linkCode=as2&tag=chaitya62-21&linkId=d891ff91b3dfb0ffc8990e28ad90798d">Mastery (The Modern Machiavellian Robert Greene)</a>
