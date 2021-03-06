@@ -14,7 +14,7 @@ Dear Future Self,
 > The brick walls are there for a reason. They're not there to keep us out. The brick walls are there to give
 us a chance to show how badly we want something. - Randy Pausch
 
-It's okay to be scared, to be in doubt, We know who we are, here are a list of things for you to do right now. You'll be fine, just keep breaking the brick walls that is meant for other people who don't really want it anyways.
+It's okay to be scared, to be in doubt. You'll be fine, just keep breaking the brick walls that is meant for other people who don't really want it anyways. We know who we are, here are a list of things for you to do right now 
 
 1. Watch this lecture, note down the advice if you have to you'll find something useful to deal with whatever it is you are going through - [The Last Lecture](https://www.youtube.com/watch?v=ji5_MqicxSo) by Randy Pausch .
 2. Watch Master of None S2 E4 😇.
