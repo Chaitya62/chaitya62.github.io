@@ -20,7 +20,7 @@ It's okay to be scared, to be in doubt. You'll be fine, just keep breaking the b
 2. Watch Master of None S2 E4 😇.
 3. Listen to The Local Train, When Chai Met Toast and think about the nights during Symphony in your College. Close your eyes and let the concert sync in imaging you are there all alone.
 4. Write a small piece about what you are feeling right now, let the feelings flow.
-5. Go for a Run.
+5. Go for a [Run](https://www.youtube.com/watch?v=R2_Mn-qRKjA).
 6. Go for a swim.
 7. Go out with Family.
 8. Meet Aakash and Denil, talk about whatever it is you are going through.
