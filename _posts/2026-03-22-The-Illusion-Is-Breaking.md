@@ -18,19 +18,17 @@ comments: true
 <details>
 <summary><strong>TL;DR (AI-generated summary — click to expand)</strong></summary>
 
-<br>
+<ul>
+  <li>Stack Overflow questions collapsed 75%+; GitHub Copilot writes ~46% of code. AI didn't just assist — it automated the "glue work" most engineers were actually doing.</li>
+  <li>Amazon migrated 30,000 production apps in hours using AI, saving $260M and 4,500 developer-years. The rote work is gone.</li>
+  <li>Junior developer employment dropped ~20% since late 2022. Mid-career engineers (35–49) are up 9%. Experience and judgment are appreciating assets; syntax skills are depreciating ones.</li>
+  <li>Speed is now table stakes. The real constraint shifted from "can we build it?" to "should we build this at all?" — and AI can't answer that for you.</li>
+  <li>Individual productivity gains of 30–60% aren't showing up in company-wide delivery metrics. AI amplifies what's already there — good judgment or bad habits, equally.</li>
+  <li>Only 3% of developers highly trust AI-generated code. GitClear found a 4x spike in code duplication as AI adoption rose. Shipping faster doesn't mean shipping better.</li>
+  <li>The job was never really about writing code. It was about solving problems. AI just made that obvious by handling the part we mistook for the hard part.</li>
+</ul>
 
-- Stack Overflow questions collapsed 75%+; GitHub Copilot writes ~46% of code. AI didn't just assist — it automated the "glue work" most engineers were actually doing.
-- Amazon migrated 30,000 production apps in hours using AI, saving $260M and 4,500 developer-years. The rote work is gone.
-- Junior developer employment dropped ~20% since late 2022. Mid-career engineers (35–49) are up 9%. Experience and judgment are appreciating assets; syntax skills are depreciating ones.
-- Speed is now table stakes. The real constraint shifted from "can we build it?" to "should we build this at all?" — and AI can't answer that for you.
-- Individual productivity gains of 30–60% aren't showing up in company-wide delivery metrics. AI amplifies what's already there — good judgment or bad habits, equally.
-- Only 3% of developers highly trust AI-generated code. GitClear found a 4x spike in code duplication as AI adoption rose. Shipping faster doesn't mean shipping better.
-- The job was never really about writing code. It was about solving problems. AI just made that obvious by handling the part we mistook for the hard part.
-
----
-
-⚠️ *This TL;DR was AI-generated.*
+<p><small>⚠️ <em>This TL;DR was AI-generated.</em></small></p>
 
 </details>
 
