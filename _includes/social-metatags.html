@@ -28,7 +28,7 @@
   {% else %}
     {% assign page_image = site.url | append: site.baseurl | append: page.image %}
   {% endif %}
-{%else if site.image %}
+{% elsif site.image %}
   {% if site.image contains "://" %}
     {% assign page_image = site.image %}
   {% else %}
