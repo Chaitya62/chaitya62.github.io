@@ -1,0 +1,7 @@
+.git
+.bundle
+.claude
+.sass-cache
+_site
+vendor
+*.log

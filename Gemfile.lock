@@ -37,15 +37,19 @@ GEM
       terminal-table (~> 1.8)
     jekyll-sass-converter (2.0.1)
       sassc (> 2.0.1, < 3.0)
+    jekyll-seo-tag (2.8.0)
+      jekyll (>= 3.8, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.1.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     liquid (4.0.3)
-    listen (3.2.0)
+    listen (3.10.0)
+      logger
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.7.0)
     mercenary (0.3.6)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -65,7 +69,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jekyll-seo-tag
   jekyll-theme-cayman-blog!
 
 BUNDLED WITH
-   1.16.0
+   2.4.22

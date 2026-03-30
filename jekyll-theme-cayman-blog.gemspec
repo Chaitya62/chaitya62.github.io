@@ -9,7 +9,15 @@ Gem::Specification.new do |s|
   s.homepage      = "https://github.com/lorepirri/cayman-blog"
   s.summary       = "Cayman Blog Theme is a clean, responsive blogging theme for Jekyll and GitHub Pages, with social/SEO features. Based on Cayman theme."
 
-  s.files         = `git ls-files -z`.split("\x0").select do |f|
+  tracked_files = if File.directory?(".git")
+    `git ls-files -z`.split("\x0")
+  else
+    Dir.glob("{_includes,_layouts,_sass,assets}/**/*", File::FNM_DOTMATCH).reject do |f|
+      File.directory?(f)
+    end + Dir.glob("{LICENSE,README,index,about,contact,404}*", File::FNM_CASEFOLD)
+  end
+
+  s.files         = tracked_files.select do |f|
     f.match(%r{^((_includes|_layouts|_sass|assets)/|(LICENSE|README|index|about|contact|404)((\.(txt|md|markdown)|$)))}i)
   end
 
