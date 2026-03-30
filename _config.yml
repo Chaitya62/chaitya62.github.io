@@ -21,7 +21,7 @@ google_analytics: true
 
 # social
 author: "Chaitya Shah"
-image: /thumbnail-jumbo.png
+image: https://cataas.com/cat
 twitter:
   username: Chaitya62
 #  site:
