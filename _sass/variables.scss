@@ -2,22 +2,50 @@
 $large-breakpoint: 64em !default;
 $medium-breakpoint: 42em !default;
 
-// Headers
-$header-heading-color: #fff !default;
-$header-bg-color: #159957 !default;
-$header-bg-color-secondary: #155799 !default;
+// Light mode (defaults)
+:root {
+  --bg: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text: #1a1a2e;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --link: #2563eb;
+  --link-hover: #1d4ed8;
+  --heading: #111827;
+  --border: #e5e7eb;
+  --code-bg: #1e1e2e;
+  --code-text: #cdd6f4;
+  --inline-code-bg: #f3f4f6;
+  --inline-code-text: #e11d48;
+  --blockquote-border: #d1d5db;
+  --blockquote-text: #6b7280;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --footer-text: #9ca3af;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  --toggle-bg: #f3f4f6;
+  --toggle-hover: #e5e7eb;
+}
 
-// Text
-$section-headings-color: #159957 !default;
-$body-text-color: #606c71 !default;
-$body-link-color: #1e6bb8 !default;
-$blockquote-text-color: #819198 !default;
-
-// Code
-$code-bg-color: #f3f6fa !default;
-$code-text-color: #567482 !default;
-
-// Borders
-$border-color: #dce6f0 !default;
-$table-border-color: #e9ebec !default;
-$hr-border-color: #eff0f1 !default;
+// Dark mode
+:root.dark {
+  --bg: #0f0f17;
+  --bg-secondary: #1a1a2e;
+  --text: #e4e4e7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --link: #60a5fa;
+  --link-hover: #93bbfd;
+  --heading: #f4f4f5;
+  --border: #27272a;
+  --code-bg: #1a1a2e;
+  --code-text: #cdd6f4;
+  --inline-code-bg: #27272a;
+  --inline-code-text: #f472b6;
+  --blockquote-border: #3f3f46;
+  --blockquote-text: #a1a1aa;
+  --nav-bg: rgba(15, 15, 23, 0.85);
+  --footer-text: #71717a;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  --toggle-bg: #27272a;
+  --toggle-hover: #3f3f46;
+}

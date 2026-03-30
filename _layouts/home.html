@@ -4,11 +4,14 @@ layout: default
 
 <div>
 
+  <div class="home-intro">
+    <h1 class="home-title">Hey, I'm Chaitya</h1>
+    <p class="home-description">{{ site.description }}</p>
+  </div>
+
   {{ content }}
 
   <h2>Latest Posts</h2>
-
-  <div>&nbsp;</div>
 
   <ul class="post-list">
     {% for post in site.posts %}
@@ -21,7 +24,7 @@ layout: default
           <a class="post-link" href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
         </h2>
 
-        <span>{{ post.excerpt | markdownify | truncatewords: 30 }}</span>
+        <div class="post-excerpt">{{ post.excerpt | markdownify | strip_html | truncatewords: 40 }}</div>
 
       </li>
     {% endfor %}
