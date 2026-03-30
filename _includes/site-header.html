@@ -34,10 +34,27 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
 
-        <!-- Theme toggle -->
+        <!-- Theme toggle — single SVG morph -->
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></svg>
+          <svg class="sun-moon-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <mask id="moon-mask">
+                <rect x="0" y="0" width="24" height="24" fill="white"/>
+                <circle class="mask-circle" cx="24" cy="2" r="8" fill="black"/>
+              </mask>
+            </defs>
+            <!-- Sun/moon body — masked to create crescent -->
+            <circle class="sun-body" cx="12" cy="12" r="5" fill="currentColor" mask="url(#moon-mask)"/>
+            <!-- Sun rays (individual for staggered animation) -->
+            <line class="ray ray-1" stroke="currentColor" stroke-width="2" x1="12" y1="1" x2="12" y2="3"/>
+            <line class="ray ray-2" stroke="currentColor" stroke-width="2" x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            <line class="ray ray-3" stroke="currentColor" stroke-width="2" x1="21" y1="12" x2="23" y2="12"/>
+            <line class="ray ray-4" stroke="currentColor" stroke-width="2" x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line class="ray ray-5" stroke="currentColor" stroke-width="2" x1="12" y1="21" x2="12" y2="23"/>
+            <line class="ray ray-6" stroke="currentColor" stroke-width="2" x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line class="ray ray-7" stroke="currentColor" stroke-width="2" x1="1" y1="12" x2="3" y2="12"/>
+            <line class="ray ray-8" stroke="currentColor" stroke-width="2" x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          </svg>
         </button>
       </div>
 
@@ -72,14 +89,106 @@
 (function() {
   var toggle = document.getElementById('theme-toggle');
   if (!toggle) return;
+
+  // Click sound — short noise burst that sounds like a physical switch
+  function playClick() {
+    try {
+      var ctx = new (window.AudioContext || window.webkitAudioContext)();
+      var t = ctx.currentTime;
+
+      // White noise burst for the "click" texture
+      var bufferSize = ctx.sampleRate * 0.02; // 20ms
+      var buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      var data = buffer.getChannelData(0);
+      for (var i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * 0.5;
+      }
+      var noise = ctx.createBufferSource();
+      noise.buffer = buffer;
+
+      // Bandpass filter to shape the noise into a click
+      var filter = ctx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.value = 2000;
+      filter.Q.value = 1.5;
+
+      var noiseGain = ctx.createGain();
+      noiseGain.gain.setValueAtTime(0.4, t);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, t + 0.03);
+
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(ctx.destination);
+      noise.start(t);
+      noise.stop(t + 0.03);
+
+      // Tiny thump for body
+      var osc = ctx.createOscillator();
+      var oscGain = ctx.createGain();
+      osc.frequency.setValueAtTime(1200, t);
+      osc.frequency.exponentialRampToValueAtTime(300, t + 0.015);
+      oscGain.gain.setValueAtTime(0.12, t);
+      oscGain.gain.exponentialRampToValueAtTime(0.001, t + 0.025);
+      osc.connect(oscGain);
+      oscGain.connect(ctx.destination);
+      osc.start(t);
+      osc.stop(t + 0.03);
+    } catch(e) {}
+  }
+
+  // Animate SVG attributes smoothly
+  var maskCircle = toggle.querySelector('.mask-circle');
+  var sunBody = toggle.querySelector('.sun-body');
+  var svg = toggle.querySelector('.sun-moon-svg');
+  var rays = toggle.querySelector('.sun-rays');
+
+  function animateAttr(el, attr, from, to, duration, delay) {
+    delay = delay || 0;
+    setTimeout(function() {
+      var start = performance.now();
+      function tick(now) {
+        var t = Math.min((now - start) / duration, 1);
+        // ease out cubic
+        var ease = 1 - Math.pow(1 - t, 3);
+        var val = from + (to - from) * ease;
+        el.setAttribute(attr, val);
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }, delay);
+  }
+
+  // Set initial SVG state if dark mode is active on load
+  if (document.documentElement.classList.contains('dark')) {
+    maskCircle.setAttribute('cx', '16');
+    maskCircle.setAttribute('cy', '6');
+    sunBody.setAttribute('r', '9');
+  }
+
   toggle.addEventListener('click', function() {
     var html = document.documentElement;
-    if (html.classList.contains('dark')) {
+    var isDark = html.classList.contains('dark');
+
+    playClick();
+
+    if (isDark) {
+      // Going to light: moon -> sun
       html.classList.remove('dark');
       localStorage.setItem('theme', 'light');
+      // Mask slides away (crescent disappears)
+      animateAttr(maskCircle, 'cx', 16, 24, 700);
+      animateAttr(maskCircle, 'cy', 6, 2, 700);
+      // Body shrinks back to sun size
+      animateAttr(sunBody, 'r', 9, 5, 600, 150);
     } else {
+      // Going to dark: sun -> moon
       html.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+      // Body grows larger
+      animateAttr(sunBody, 'r', 5, 9, 600);
+      // Mask slides in to carve crescent
+      animateAttr(maskCircle, 'cx', 24, 16, 700, 150);
+      animateAttr(maskCircle, 'cy', 2, 6, 700, 150);
     }
   });
 })();

@@ -100,5 +100,157 @@
     gtag('config', 'UA-118378167-1');
     </script>
     {% endif %}
+
+<script>
+// === Text Scramble Effect ===
+(function() {
+  var title = document.querySelector('.home-title');
+  if (!title) return;
+
+  var originalText = title.textContent;
+  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+  var frameCount = 0;
+  var revealedCount = 0;
+  var framesPerChar = 3; // scramble each position for 3 frames before revealing
+
+  function scramble() {
+    frameCount++;
+
+    // Reveal one more character every framesPerChar frames
+    if (frameCount % framesPerChar === 0) {
+      revealedCount++;
+    }
+
+    title.textContent = originalText.split('').map(function(char, i) {
+      if (char === ' ' || char === ',' || char === "'") return char;
+      if (i < revealedCount) return originalText[i];
+      return chars[Math.floor(Math.random() * chars.length)];
+    }).join('');
+
+    if (revealedCount < originalText.length) {
+      setTimeout(function() { requestAnimationFrame(scramble); }, 30);
+    } else {
+      title.textContent = originalText;
+    }
+  }
+
+  // Run on load
+  setTimeout(scramble, 400);
+
+  // Re-run on hover (desktop) or tap (mobile)
+  function replayScramble() {
+    frameCount = 0;
+    revealedCount = 0;
+    scramble();
+  }
+  title.addEventListener('mouseenter', replayScramble);
+  title.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    replayScramble();
+  }, { passive: false });
+})();
+
+// === Spotlight Cursor Effect (dark mode only, desktop only) ===
+(function() {
+  // Skip on touch devices — no persistent cursor
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+  var spotlight = document.createElement('div');
+  spotlight.className = 'spotlight';
+  document.body.appendChild(spotlight);
+
+  document.addEventListener('mousemove', function(e) {
+    if (!document.documentElement.classList.contains('dark')) {
+      spotlight.classList.remove('active');
+      return;
+    }
+    spotlight.classList.add('active');
+    spotlight.style.background = 'radial-gradient(400px circle at ' + e.clientX + 'px ' + e.clientY + 'px, rgba(96, 165, 250, 0.15), rgba(96, 165, 250, 0.05) 40%, transparent 70%)';
+  });
+
+  document.addEventListener('mouseleave', function() {
+    spotlight.classList.remove('active');
+  });
+})();
+
+// === Staggered Post List Fade-in ===
+(function() {
+  var items = document.querySelectorAll('.post-list > li');
+  if (!items.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  items.forEach(function(item, i) {
+    item.style.transitionDelay = (i * 0.1) + 's';
+    observer.observe(item);
+  });
+})();
+
+// === Reading Progress Bar ===
+(function() {
+  if (!document.querySelector('article')) return;
+
+  var bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  document.body.appendChild(bar);
+
+  window.addEventListener('scroll', function() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = Math.min(progress, 100) + '%';
+  }, { passive: true });
+})();
+
+// === Konami Code Easter Egg ===
+(function() {
+  var sequence = [38,38,40,40,37,39,37,39,66,65];
+  var input = [];
+  var colors = ['#ff6b6b','#feca57','#48dbfb','#ff9ff3','#54a0ff','#5f27cd','#01a3a4','#f368e0'];
+
+  document.addEventListener('keydown', function(e) {
+    input.push(e.keyCode);
+    if (input.length > sequence.length) input.shift();
+
+    if (input.join(',') === sequence.join(',')) {
+      // Confetti burst!
+      for (var i = 0; i < 100; i++) {
+        var piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.top = '-10px';
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = Math.random() * 0.5 + 's';
+        piece.style.animationDuration = (1 + Math.random()) + 's';
+        piece.style.width = (5 + Math.random() * 8) + 'px';
+        piece.style.height = (5 + Math.random() * 8) + 'px';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        document.body.appendChild(piece);
+        setTimeout(function(p) { p.remove(); }.bind(null, piece), 2500);
+      }
+      input = [];
+    }
+  });
+})();
+
+// === Console Easter Egg ===
+(function() {
+  console.log('%c' +
+    '╔═══════════════════════════════════════╗\n' +
+    '║  Hey curious one! 👀                  ║\n' +
+    '║  Like digging into code?              ║\n' +
+    '║  Try the Konami code on the page...   ║\n' +
+    '║  ↑↑↓↓←→←→BA                          ║\n' +
+    '╚═══════════════════════════════════════╝',
+    'color: #60a5fa; font-family: monospace; font-size: 13px;');
+})();
+</script>
   </body>
 </html>

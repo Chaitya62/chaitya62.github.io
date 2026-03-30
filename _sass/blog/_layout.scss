@@ -64,10 +64,27 @@
     font-weight: 450;
     text-decoration: none;
     transition: color 0.2s ease;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--link);
+      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 1px;
+    }
 
     &:hover {
       color: var(--heading);
       text-decoration: none;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
   }
 }
@@ -217,7 +234,7 @@
 }
 
 /**
- * Theme toggle
+ * Theme toggle — single SVG morph (sun ↔ moon)
  */
 .theme-toggle {
   display: flex;
@@ -232,35 +249,199 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   flex-shrink: 0;
+  color: var(--text-muted);
 
   &:hover {
     background: var(--toggle-bg);
+    color: var(--heading);
   }
 
-  svg {
-    width: 18px;
-    height: 18px;
-    fill: var(--text-muted);
-    transition: fill 0.2s ease;
+  .sun-moon-svg {
+    width: 20px;
+    height: 20px;
+    overflow: visible;
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: rotate(0deg);
   }
 
-  &:hover svg {
-    fill: var(--heading);
+  .ray {
+    transform-origin: center;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  .icon-sun {
-    display: none;
+  // Stagger rays appearing (clockwise, one by one)
+  .ray-1 { transition-delay: 0.15s; }
+  .ray-2 { transition-delay: 0.25s; }
+  .ray-3 { transition-delay: 0.35s; }
+  .ray-4 { transition-delay: 0.45s; }
+  .ray-5 { transition-delay: 0.55s; }
+  .ray-6 { transition-delay: 0.65s; }
+  .ray-7 { transition-delay: 0.75s; }
+  .ray-8 { transition-delay: 0.85s; }
+}
+
+// Dark mode: rays retract one by one, SVG rotates
+.dark .theme-toggle {
+  .sun-moon-svg {
+    transform: rotate(40deg);
   }
-  .icon-moon {
-    display: block;
+
+  .ray {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  // Reverse stagger — rays disappear one by one
+  .ray-1 { transition-delay: 0.7s; }
+  .ray-2 { transition-delay: 0.6s; }
+  .ray-3 { transition-delay: 0.5s; }
+  .ray-4 { transition-delay: 0.4s; }
+  .ray-5 { transition-delay: 0.3s; }
+  .ray-6 { transition-delay: 0.2s; }
+  .ray-7 { transition-delay: 0.1s; }
+  .ray-8 { transition-delay: 0s; }
+}
+
+/**
+ * Staggered fade-in for post list
+ */
+.post-list > li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease;
+}
+
+.post-list > li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/**
+ * Reading progress bar
+ */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--progress-bar);
+  z-index: 200;
+  transition: width 0.1s linear;
+  border-radius: 0 1px 1px 0;
+}
+
+/**
+ * Spotlight cursor effect
+ */
+.spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.spotlight.active {
+  opacity: 1;
+}
+
+/**
+ * Text scramble cursor
+ */
+.home-title {
+  cursor: default;
+}
+
+.home-title .char {
+  display: inline-block;
+  transition: opacity 0.1s ease;
+}
+
+/**
+ * Animated link underlines in post content
+ */
+article a,
+.main-content > div a:not(.post-link):not(.page-link):not(.social-icon):not(.site-title) {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(var(--link), var(--link));
+  background-size: 0% 1.5px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.2s ease;
+  padding-bottom: 2px;
+
+  &:hover {
+    background-size: 100% 1.5px;
+    text-decoration: none;
   }
 }
 
-.dark .theme-toggle {
-  .icon-sun {
-    display: block;
+/**
+ * Konami confetti
+ */
+.confetti-piece {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  animation: confetti-fall 1.5s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
   }
-  .icon-moon {
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(720deg) scale(0.5);
+  }
+}
+
+/**
+ * Social icon hover - subtle lift (desktop only)
+ */
+@media (hover: hover) {
+  .social-icon {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/**
+ * Mobile adjustments
+ */
+@media (hover: none) {
+  // No hover underline on nav links — not applicable on touch
+  .nav-links .page-link::after {
     display: none;
+  }
+
+  // Post content links: show subtle static underline instead of hover effect
+  article a,
+  .main-content > div a:not(.post-link):not(.page-link):not(.social-icon):not(.site-title) {
+    background-size: 100% 1px;
+  }
+}
+
+/**
+ * Reading progress bar — thicker on mobile for easier visibility
+ */
+@media screen and (max-width: 42em) {
+  .reading-progress {
+    height: 2px;
   }
 }

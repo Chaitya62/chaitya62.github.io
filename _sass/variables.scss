@@ -24,6 +24,12 @@ $medium-breakpoint: 42em !default;
   --card-shadow: 0 1px 3px rgba(0,0,0,0.04);
   --toggle-bg: #f3f4f6;
   --toggle-hover: #e5e7eb;
+  --rainbow-1: #ff6b6b;
+  --rainbow-2: #feca57;
+  --rainbow-3: #48dbfb;
+  --rainbow-4: #ff9ff3;
+  --rainbow-5: #54a0ff;
+  --progress-bar: #2563eb;
 }
 
 // Dark mode
@@ -48,4 +54,10 @@ $medium-breakpoint: 42em !default;
   --card-shadow: 0 1px 3px rgba(0,0,0,0.2);
   --toggle-bg: #27272a;
   --toggle-hover: #3f3f46;
+  --rainbow-1: #ff6b6b;
+  --rainbow-2: #feca57;
+  --rainbow-3: #48dbfb;
+  --rainbow-4: #ff9ff3;
+  --rainbow-5: #54a0ff;
+  --progress-bar: #60a5fa;
 }
