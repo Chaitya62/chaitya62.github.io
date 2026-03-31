@@ -1,0 +1,457 @@
+---
+layout: default
+title: 404 Error
+tagline: "You've ventured into the void."
+permalink: /404.html
+---
+
+<style>
+/* ============================
+   Shared styles
+   ============================ */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin-bottom: 0.5rem;
+}
+
+.error-submessage {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 380px;
+}
+
+.error-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--link);
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.error-link:hover {
+  border-color: var(--link);
+  background-color: var(--toggle-bg);
+  text-decoration: none;
+}
+
+.error-variant { display: none; }
+.error-variant.active { display: flex; }
+
+/* ============================
+   Option D: Black Hole
+   ============================ */
+.black-hole {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 2rem;
+}
+
+.accretion-disk {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  margin: -130px 0 0 -130px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(96, 165, 250, 0.08) 30deg,
+    rgba(96, 165, 250, 0.25) 90deg,
+    rgba(139, 92, 246, 0.3) 150deg,
+    rgba(236, 72, 153, 0.25) 210deg,
+    rgba(96, 165, 250, 0.08) 270deg,
+    transparent 360deg
+  );
+  animation: spin 8s linear infinite;
+}
+
+.accretion-disk::before {
+  content: '';
+  position: absolute;
+  top: 15%; left: 15%; right: 15%; bottom: 15%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0deg,
+    rgba(139, 92, 246, 0.15) 60deg,
+    rgba(96, 165, 250, 0.35) 120deg,
+    rgba(236, 72, 153, 0.2) 200deg,
+    transparent 360deg
+  );
+  animation: spin-reverse 6s linear infinite;
+}
+
+.accretion-disk::after {
+  content: '';
+  position: absolute;
+  top: 30%; left: 30%; right: 30%; bottom: 30%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 90deg,
+    transparent 0deg,
+    rgba(96, 165, 250, 0.2) 45deg,
+    rgba(139, 92, 246, 0.4) 120deg,
+    rgba(236, 72, 153, 0.3) 200deg,
+    rgba(96, 165, 250, 0.1) 300deg,
+    transparent 360deg
+  );
+  animation: spin 4s linear infinite;
+}
+
+.singularity {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 70px; height: 70px;
+  margin: -35px 0 0 -35px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000 40%, rgba(0,0,0,0.9) 60%, transparent 70%);
+  z-index: 2;
+  box-shadow: 0 0 40px 15px rgba(0,0,0,0.8), 0 0 80px 30px rgba(0,0,0,0.4);
+}
+
+.singularity-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(139, 92, 246, 0.7);
+  z-index: 3;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.glow-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 90px; height: 90px;
+  margin: -45px 0 0 -45px;
+  border-radius: 50%;
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  box-shadow: 0 0 20px 2px rgba(96,165,250,0.1), inset 0 0 20px 2px rgba(96,165,250,0.05);
+  z-index: 1;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  z-index: 0;
+}
+.particle:nth-child(1) { top:5%; left:20%; background:rgba(96,165,250,0.6); animation:suck-in 3s ease-in infinite 0s; }
+.particle:nth-child(2) { top:15%; right:10%; background:rgba(139,92,246,0.6); animation:suck-in 3.5s ease-in infinite 0.5s; }
+.particle:nth-child(3) { bottom:10%; left:10%; background:rgba(236,72,153,0.5); animation:suck-in 4s ease-in infinite 1s; }
+.particle:nth-child(4) { bottom:20%; right:15%; background:rgba(96,165,250,0.5); animation:suck-in 3.2s ease-in infinite 1.5s; }
+.particle:nth-child(5) { top:40%; left:5%; background:rgba(139,92,246,0.4); animation:suck-in 3.8s ease-in infinite 0.8s; }
+.particle:nth-child(6) { top:10%; left:60%; background:rgba(236,72,153,0.6); animation:suck-in 3.3s ease-in infinite 2s; }
+.particle:nth-child(7) { bottom:5%; right:40%; background:rgba(96,165,250,0.7); animation:suck-in 4.2s ease-in infinite 0.3s; }
+.particle:nth-child(8) { top:60%; right:5%; background:rgba(139,92,246,0.5); animation:suck-in 3.6s ease-in infinite 1.2s; }
+
+@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes spin-reverse { from{transform:rotate(360deg)} to{transform:rotate(0deg)} }
+@keyframes pulse-glow {
+  0%,100% { opacity:0.6; transform:translate(-50%,-50%) scale(1); }
+  50% { opacity:1; transform:translate(-50%,-50%) scale(1.08); }
+}
+@keyframes suck-in {
+  0% { opacity:1; transform:translate(0,0) scale(1); }
+  70% { opacity:0.8; }
+  100% { opacity:0; transform:translate(calc(140px - 100%), calc(140px - 100%)) scale(0); }
+}
+
+:root:not(.dark) .singularity {
+  background: radial-gradient(circle, #1a1a2e 40%, rgba(26,26,46,0.85) 60%, transparent 70%);
+  box-shadow: 0 0 40px 15px rgba(26,26,46,0.5), 0 0 80px 30px rgba(26,26,46,0.2);
+}
+:root:not(.dark) .singularity-text { color: rgba(167,139,250,0.9); text-shadow: 0 0 10px rgba(167,139,250,0.6); }
+:root:not(.dark) .glow-ring {
+  border-color: rgba(99,102,241,0.25);
+  box-shadow: 0 0 20px 4px rgba(99,102,241,0.15), inset 0 0 20px 4px rgba(99,102,241,0.08);
+}
+:root:not(.dark) .accretion-disk {
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(79,70,229,0.1) 30deg, rgba(79,70,229,0.3) 90deg, rgba(139,92,246,0.35) 150deg, rgba(219,39,119,0.25) 210deg, rgba(79,70,229,0.1) 270deg, transparent 360deg);
+}
+:root:not(.dark) .accretion-disk::before {
+  background: conic-gradient(from 180deg, transparent 0deg, rgba(139,92,246,0.2) 60deg, rgba(79,70,229,0.4) 120deg, rgba(219,39,119,0.25) 200deg, transparent 360deg);
+}
+:root:not(.dark) .accretion-disk::after {
+  background: conic-gradient(from 90deg, transparent 0deg, rgba(79,70,229,0.25) 45deg, rgba(139,92,246,0.45) 120deg, rgba(219,39,119,0.35) 200deg, rgba(79,70,229,0.15) 300deg, transparent 360deg);
+}
+:root:not(.dark) .particle:nth-child(1) { background:rgba(79,70,229,0.7); }
+:root:not(.dark) .particle:nth-child(2) { background:rgba(139,92,246,0.7); }
+:root:not(.dark) .particle:nth-child(3) { background:rgba(219,39,119,0.6); }
+:root:not(.dark) .particle:nth-child(4) { background:rgba(79,70,229,0.6); }
+:root:not(.dark) .particle:nth-child(5) { background:rgba(139,92,246,0.5); }
+:root:not(.dark) .particle:nth-child(6) { background:rgba(219,39,119,0.7); }
+:root:not(.dark) .particle:nth-child(7) { background:rgba(79,70,229,0.8); }
+:root:not(.dark) .particle:nth-child(8) { background:rgba(139,92,246,0.6); }
+
+@media screen and (max-width: 42em) {
+  .black-hole { width:220px; height:220px; }
+  .accretion-disk { width:200px; height:200px; margin:-100px 0 0 -100px; }
+  .singularity { width:55px; height:55px; margin:-27.5px 0 0 -27.5px; }
+  .singularity-text { font-size:0.95rem; }
+  .glow-ring { width:72px; height:72px; margin:-36px 0 0 -36px; }
+}
+
+/* ============================
+   Option B: Terminal
+   ============================ */
+.terminal {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 2rem;
+  background: var(--code-bg);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.terminal-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #febc2e; }
+.terminal-dot.green { background: #28c840; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-body {
+  padding: 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #cdd6f4;
+  min-height: 200px;
+}
+
+.terminal-line {
+  opacity: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.terminal-line.visible {
+  opacity: 1;
+}
+
+.terminal-prompt {
+  color: #a6e3a1;
+}
+
+.terminal-error {
+  color: #f38ba8;
+}
+
+.terminal-comment {
+  color: #6c7086;
+}
+
+.terminal-link-text {
+  color: #89b4fa;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  background: #cdd6f4;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.terminal-nav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.terminal-nav a {
+  color: #89b4fa;
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+  background: none !important;
+}
+
+.terminal-nav a:hover {
+  color: #b4befe;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 42em) {
+  .terminal { max-width: 100%; }
+  .terminal-body { font-size: 0.78rem; padding: 1rem; }
+}
+</style>
+
+<!-- Option D: Black Hole -->
+<div class="error-page error-variant" id="blackhole-404">
+  <div class="black-hole">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="accretion-disk"></div>
+    <div class="glow-ring"></div>
+    <div class="singularity">
+      <span class="singularity-text">404</span>
+    </div>
+  </div>
+
+  <p class="error-message">This page got pulled into a black hole.</p>
+  <p class="error-submessage">Whatever was here has crossed the event horizon. There's no getting it back.</p>
+
+  <a href="{{ '/' | relative_url }}" class="error-link">
+    &larr; Escape to safety
+  </a>
+</div>
+
+<!-- Option B: Terminal -->
+<div class="error-page error-variant" id="terminal-404">
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <span class="terminal-title">bash — 404</span>
+    </div>
+    <div class="terminal-body" id="terminal-output">
+    </div>
+  </div>
+
+  <p class="error-message">Page not found.</p>
+  <p class="error-submessage">Looks like you tried to <code>cd</code> into a directory that doesn't exist.</p>
+
+  <a href="{{ '/' | relative_url }}" class="error-link">
+    &larr; cd ~/home
+  </a>
+</div>
+
+<script>
+(function() {
+  // Randomly pick a variant
+  var variants = ['blackhole-404', 'terminal-404'];
+  var pick = variants[Math.floor(Math.random() * variants.length)];
+  document.getElementById(pick).classList.add('active');
+
+  // Terminal typewriter effect
+  if (pick !== 'terminal-404') return;
+
+  var lines = [
+    { text: '$ ', cls: 'terminal-prompt', typedText: 'cd /the-page-you-wanted', delay: 400 },
+    { text: 'bash: cd: /the-page-you-wanted: No such file or directory', cls: 'terminal-error', delay: 600 },
+    { text: '', cls: '', delay: 300 },
+    { text: '$ ', cls: 'terminal-prompt', typedText: 'find / -name "this-page" 2>/dev/null', delay: 500 },
+    { text: '# no results found', cls: 'terminal-comment', delay: 800 },
+    { text: '', cls: '', delay: 300 },
+    { text: '$ ', cls: 'terminal-prompt', typedText: 'ls ~/sitemap/', delay: 500 },
+    { text: '', cls: '', isNav: true, delay: 400 },
+    { text: '', cls: '', delay: 200 },
+    { text: '$ ', cls: 'terminal-prompt', isCursor: true, delay: 0 },
+  ];
+
+  var output = document.getElementById('terminal-output');
+  var lineIndex = 0;
+  var totalDelay = 0;
+
+  function typeText(el, prompt, text, callback) {
+    el.innerHTML = '<span class="' + prompt + '">' + '$ ' + '</span>';
+    el.classList.add('visible');
+    var i = 0;
+    function typeChar() {
+      if (i < text.length) {
+        el.innerHTML = '<span class="terminal-prompt">$ </span>' + text.substring(0, i + 1);
+        i++;
+        setTimeout(typeChar, 35 + Math.random() * 30);
+      } else if (callback) {
+        callback();
+      }
+    }
+    typeChar();
+  }
+
+  function showLine(index) {
+    if (index >= lines.length) return;
+    var line = lines[index];
+    var el = document.createElement('div');
+    el.className = 'terminal-line';
+    output.appendChild(el);
+
+    if (line.typedText) {
+      typeText(el, line.cls, line.typedText, function() {
+        setTimeout(function() { showLine(index + 1); }, lines[index + 1] ? lines[index + 1].delay : 0);
+      });
+    } else if (line.isNav) {
+      el.classList.add('visible');
+      var nav = document.createElement('div');
+      nav.className = 'terminal-nav';
+      nav.innerHTML = '<a href="/">home</a><a href="/about">about</a>';
+      el.appendChild(nav);
+      setTimeout(function() { showLine(index + 1); }, lines[index + 1] ? lines[index + 1].delay : 0);
+    } else if (line.isCursor) {
+      el.innerHTML = '<span class="terminal-prompt">$ </span><span class="terminal-cursor"></span>';
+      el.classList.add('visible');
+    } else {
+      el.textContent = line.text;
+      el.className = 'terminal-line visible ' + line.cls;
+      setTimeout(function() { showLine(index + 1); }, lines[index + 1] ? lines[index + 1].delay : 0);
+    }
+  }
+
+  setTimeout(function() { showLine(0); }, 500);
+})();
+</script>

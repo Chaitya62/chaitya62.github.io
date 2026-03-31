@@ -54,14 +54,9 @@
 
     {% include site-header.html %}
 
-    {% if page.layout == 'page' %}
-      {% assign page-tagline = page.tagline | escape %}
-    {% endif %}
-    {% if page.layout == 'post' %}
-      {% assign page-tagline = page.tagline | escape %}
-    {% endif %}
+    {% assign page-tagline = page.tagline | escape %}
 
-    {% unless page.layout == 'home' %}
+    {% unless page.layout == 'home' or page.hide_header %}
     <section class="page-header">
       <h1 class="project-name">{{ page-title }}</h1>
       {% if page-tagline and page-tagline != '' %}
