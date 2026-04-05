@@ -16,29 +16,7 @@ Carbon is the foundation of all known life. Every protein, every strand of DNA, 
 
 The philosophy is simple: **everything living is made of carbon, and everything I build is made of C and S.**
 
----
-
-## The Deep Dive
-
-### C + S = Chaitya Shah
-
-The logo is built entirely from two letters: **C** and **S** -- my initials.
-
-### The Outer Ring: C
-
-Take the letter **C**. Rotate it six times around a center point, each copy 60 degrees apart. The curves of the six C's interlock to form a flower-like ring -- the outer structure of the logo.
-
-![C ring construction]({{ "/assets/c-ring-construction.png" | relative_url }})
-
-### The Inner Ring: S
-
-Take the letter **S**. Rotate it five times at 72-degree intervals. The overlapping S curves form a smaller, tighter knot -- one inner ring.
-
-![S ring construction]({{ "/assets/s-ring-construction.png" | relative_url }})
-
-### Six Electrons
-
-Six of these S-rings sit inside the C-ring, one in each petal -- six electrons orbiting a carbon nucleus, built from the letters of my name.
+The logo is built entirely from my initials -- the letter C rotated six times forms the outer ring, and the letter S rotated forms each inner ring.
 
 <style>
 .logo-showcase {
