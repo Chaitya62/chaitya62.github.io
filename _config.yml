@@ -32,5 +32,9 @@ facebook:
   #authors: lorepirri
 #  admins:
 
+# Only these pages appear in the top navigation
+header_pages:
+  - about.md
+
 plugins:
    - jekyll-seo-tag

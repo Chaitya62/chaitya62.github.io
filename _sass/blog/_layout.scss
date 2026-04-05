@@ -20,6 +20,9 @@
 }
 
 .site-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -32,6 +35,42 @@
   &:hover {
     color: var(--heading);
     text-decoration: none;
+  }
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+
+  svg {
+    height: 2rem;
+    width: auto;
+    fill: currentColor;
+  }
+}
+
+// Logo hover — S-rings orbit like electrons
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.site-logo svg {
+  .s-ring {
+    transform-origin: 53px 48.5px;
+    transform-box: view-box;
+  }
+}
+
+.site-title:hover .site-logo svg {
+  .s-ring {
+    animation: orbit 3s linear infinite;
+  }
+}
+
+@media (hover: none) {
+  .site-title:hover .site-logo svg .s-ring {
+    animation: none;
   }
 }
 
