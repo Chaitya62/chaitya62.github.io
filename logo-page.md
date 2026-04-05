@@ -59,7 +59,7 @@ Six of these S-rings sit inside the C-ring, one in each petal -- six electrons o
   height: 100%;
 }
 
-.logo-hero:hover svg .s-ring {
+.logo-hero svg .s-ring {
   animation: orbit 3s linear infinite;
   transform-origin: 53px 48.5px;
   transform-box: view-box;
